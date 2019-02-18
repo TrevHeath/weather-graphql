@@ -12,7 +12,7 @@
 
 ```sh
 # 1. Clone this repo
-git clone https://github.com/Novvum/librariesio-graphql-api.git
+git clone https://github.com/trevheath/weather-graphql.git
 
 # 2. Navigate to the new project
 cd weather-graphql
@@ -33,6 +33,8 @@ npm run dev
 ## Documentation
 
 - WIP
+
+<a>https://www.weather.gov/documentation/services-web-api#/</a>
 
 ### Commands
 
