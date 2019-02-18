@@ -1,13 +1,14 @@
 import { ApolloServer } from 'apollo-server'
 import { schema } from './resolvers'
-import { NpmsApiModel } from './models/NpmsApiModel'
+
+import { WeatherApiModel } from './models/WeatherApiModel'
 
 const server = new ApolloServer({
   schema,
-  context: (req) => ({
-    ...req,
-    npms: new NpmsApiModel(),
-  }),
+  // context: (req) => ({
+  //   ...req,
+  //   weather: new WeatherApiModel(),
+  // }),
   tracing: process.env.DEPSAUCE_APP_STAGE === 'production' ? false : true,
   // engine: {
   //   apiKey: process.env.DEPSAUCE_ENGINE_API_KEY,

@@ -1,7 +1,7 @@
-# @desc A schema to represent npms.io's api
+# @desc A schema to represent Weather.gov's api
 
 type PointResultElement {
-	context: Context
+	context: JSON
 	id: String
 	type: String
 	geometry: Geomotry
@@ -19,7 +19,7 @@ type PointProperties {
 	cwa: String
 	forecastOffice: String
 	gridX: String
-	gridX: String
+	gridY: String
 	forecast: String
 	forecastHourly: String
 	forecastGridData: String
@@ -35,19 +35,19 @@ type RelativeLocation{
 }
 
 type LocationProperties {
-	city: Linn,
-  state: KS,
+	city: String,
+  state: String,
   distance:Distance
 	bearing: Bearing
 }
 
 type Distance { 
-  value: float
-  unitCode: string             
+  value: Float
+  unitCode: String             
 }
 type Bearing {
-  value: Number
-	unitCode: string
+  value: Int
+	unitCode: String
               
 }
 
@@ -57,5 +57,5 @@ type Geomotry {
 }
 
 type Coordinates {
-	coordinates: Array
+	coordinates: [String]
 }

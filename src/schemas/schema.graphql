@@ -13,7 +13,7 @@ type Query {
 type Weather {
 	points(
 		lat: String!
-		lng: SearchParams
+		lng: String!
 	): PointResultElement
 }
 
