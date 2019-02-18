@@ -1,0 +1,61 @@
+# @desc A schema to represent npms.io's api
+
+type PointResultElement {
+	context: Context
+	id: String
+	type: String
+	geometry: Geomotry
+	properties: PointProperties
+	forecastZone: String
+	county: String
+  fireWeatherZone: String
+  timeZone: String
+  radarStation: String
+}
+
+type PointProperties {
+	id: String
+	type: String
+	cwa: String
+	forecastOffice: String
+	gridX: String
+	gridX: String
+	forecast: String
+	forecastHourly: String
+	forecastGridData: String
+	observationStations: String
+	relativeLocation: RelativeLocation
+}
+
+type RelativeLocation{
+	geometry: Geomotry
+	type: String
+	locationProperties: LocationProperties
+
+}
+
+type LocationProperties {
+	city: Linn,
+  state: KS,
+  distance:Distance
+	bearing: Bearing
+}
+
+type Distance { 
+  value: float
+  unitCode: string             
+}
+type Bearing {
+  value: Number
+	unitCode: string
+              
+}
+
+type Geomotry { 
+	type: String
+	coordinates: Coordinates
+}
+
+type Coordinates {
+	coordinates: Array
+}

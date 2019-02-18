@@ -1,9 +1,7 @@
 import * as jwt from 'jsonwebtoken'
-import { LibrariesIO } from '../models/LibrariesIOModel'
-import { NpmsApiModel } from '../models/NpmsApiModel'
+import { WeatherApiModel } from '../models/WeatherApiModel'
 export interface Context {
-  libs: LibrariesIO
-  npms: NpmsApiModel
+  weather: WeatherApiModel
   request: any
 }
 

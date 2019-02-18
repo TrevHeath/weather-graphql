@@ -7,12 +7,12 @@ export interface RequestParams extends SearchParams, PackageParams {
 }
 
 export class RequestService {
-  private apiUrl: string = 'https://api.npms.io/v2'
+  private apiUrl: string = 'https://api.weather.gov/'
 
-  npms
+  weather
 
   constructor() {
-    this.npms = axios.create({ baseURL: this.apiUrl })
+    this.weather = axios.create({ baseURL: this.apiUrl })
   }
 
   async createParams(args: RequestParams) {

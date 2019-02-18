@@ -5,9 +5,8 @@ import {
   SearchCoordinate,
   ResultElement,
 } from './interfaces'
-import oChain from '../../utils/oChain'
 
-export class SearchModel extends RequestService {
+export class WeatherModel extends RequestService {
   constructor() {
     super()
   }
@@ -44,18 +43,18 @@ export class SearchModel extends RequestService {
     })
     return params
   }
-  async req(args: {
+
+  async points(args: {
     query: string
     options?: SearchParams
     filters?: FilterOptions
   }): Promise<SearchCoordinate> {
     try {
       const params = await this.formatSearchParams(args)
-      const results = await this.npms.get(`/search?${params}`)
-      const search = await this.mapFlags(results.data.results)
+      const results = await this.weather.get(`/points?${params}`)
       return {
         ...results.data,
-        results: search,
+        results: results,
       }
     } catch (e) {
       console.log(e)
@@ -63,34 +62,20 @@ export class SearchModel extends RequestService {
     }
   }
 
-  async suggestions(args: {
+  async forecast(args: {
     query: string
     options?: SearchParams
     filters?: FilterOptions
   }): Promise<ResultElement[]> {
     try {
       const params = await this.formatSearchParams(args)
-      const results = await this.npms.get(`/search/suggestions?${params}`)
-      const suggestions = await this.mapFlags(results.data)
-      console.log(suggestions)
+      const suggestions = await this.weather.get(
+        `/search/suggestions?${params}`
+      )
       return suggestions
     } catch (e) {
       console.log(e)
       return e
     }
-  }
-
-  async mapFlags(data: ResultElement[]): Promise<ResultElement[]> {
-    return await data.map((d: ResultElement) => {
-      const flags = oChain(d.flags)
-      return {
-        ...d,
-        flags: {
-          deprecated: flags.k('deprecated').getOrElse('n/a'),
-          insecure: flags.k('insecure').getOrElse(false),
-          unstable: flags.k('unstable').getOrElse(false),
-        },
-      }
-    })
   }
 }

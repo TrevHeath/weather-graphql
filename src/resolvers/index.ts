@@ -6,16 +6,11 @@ import { MergeSchemaHelper } from '../utils/MergeSchemaHelper'
 import { importSchema } from 'graphql-import'
 import GraphQLJSON from 'graphql-type-json'
 import * as path from 'path'
-import { NPMSIO } from './NPMSIO'
-import { LibrariesIO } from './LibrariesIO'
-import { GithubRepository, GithubUser } from './Github'
+import { Weather } from './Weather'
 
 const resolvers: any = {
   Query,
-  LibrariesIO,
-  NPMSIO,
-  GithubRepository,
-  GithubUser,
+  Weather,
   JSON: GraphQLJSON,
 }
 
